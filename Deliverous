@@ -1,0 +1,26 @@
+
+dolibarr:
+  image: tuxgasy/dolibarr
+  ports:
+  - ip: front
+    container_port: 80
+    host_port: 80
+  - ip: front
+    container_port: 443
+    host_port: 443
+  environment:
+    DOLI_DB_HOST: mariadb
+    DOLI_DB_USER: root
+    DOLI_DB_PASSWORD: {{ .PASSWD }}
+    DOLI_DB_NAME: dolibarr
+    DOLI_URL_ROOT: 'http://5.135.124.212'
+    PHP_INI_DATE_TIMEZONE: 'Europe/Paris'
+
+mariadb:
+  image: mariadb:latest
+  volumes:
+  - name: nextclouddb
+    path: /var/lib/mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: {{ .PASSWD }}
+    MYSQL_DATABASE: dolibarr
