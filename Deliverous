@@ -13,7 +13,7 @@ dolibarr:
     DOLI_DB_USER: root
     DOLI_DB_PASSWORD: {{ .PASSWD }}
     DOLI_DB_NAME: dolibarr
-    DOLI_URL_ROOT: 'http://5.135.124.212'
+    #DOLI_URL_ROOT: 'http://5.135.124.212'
     PHP_INI_DATE_TIMEZONE: 'Europe/Paris'
 
 mariadb:
